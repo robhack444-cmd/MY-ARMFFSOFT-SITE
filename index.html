@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARMFFSOFT | Premium Cheats</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a0a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .loader {
+            text-align: center;
+        }
+
+        .hexagon {
+            width: 60px;
+            height: 34px;
+            background: #00ff88;
+            margin: 0 auto 20px;
+            position: relative;
+            animation: spin 2s linear infinite;
+        }
+
+        .hexagon:before, .hexagon:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+        }
+
+        .hexagon:before {
+            bottom: 100%;
+            border-bottom: 17px solid #00ff88;
+        }
+
+        .hexagon:after {
+            top: 100%;
+            border-top: 17px solid #00ff88;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 0;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(45deg, #00ff88, #00ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #00ff88;
+        }
+
+        .btn-login, .btn-register {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .btn-login {
+            background: transparent;
+            color: #fff;
+            border: 1px solid #00ff88;
+        }
+
+        .btn-register {
+            background: #00ff88;
+            color: #000;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+        }
+
+        .hero-content {
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .title-gradient {
+            background: linear-gradient(45deg, #00ff88, #00ccff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+        }
+
+        .title-sub {
+            font-size: 1.5rem;
+            color: #ccc;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: #999;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #00ff88, #00ccff);
+            color: #000;
+            font-weight: bold;
+        }
+
+        .btn-shine {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover .btn-shine {
+            left: 100%;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid #00ff88;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #00ff88;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 100px 20px;
+            background: #0a0a0a;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+            background: linear-gradient(45deg, #00ff88, #00ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            border: 1px solid rgba(0,255,136,0.2);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            border-color: #00ff88;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: #ff4444;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .product-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #00ff88;
+        }
+
+        .product-features {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .feature {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .product-price {
+            margin-bottom: 25px;
+        }
+
+        .price-old {
+            text-decoration: line-through;
+            color: #999;
+            margin-right: 10px;
+        }
+
+        .price-new {
+            font-size: 1.5rem;
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        .btn-buy {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #00ff88, #00ccff);
+            border: none;
+            border-radius: 8px;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .btn-buy:hover {
+            transform: scale(1.05);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 20px;
+            background: #1a1a2e;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+        }
+
+        .modal-content {
+            background: #1a1a2e;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            border: 2px solid #00ff88;
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .payment-option {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .payment-option.active {
+            background: #00ff88;
+            color: #000;
+        }
+
+        .address-box, .email-box {
+            display: flex;
+            align-items: center;
+            background: rgba(255,255,255,0.1);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 8px;
+        }
+
+        .address-box code, .email-box code {
+            flex: 1;
+            font-family: monospace;
+            color: #00ff88;
+            font-size: 14px;
+            word-break: break-all;
+        }
+
+        .address-box button, .email-box button {
+            background: #00ff88;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #000;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .instructions {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0,255,136,0.1);
+            border-radius: 8px;
+            border-left: 4px solid #00ff88;
+        }
+
+        .instructions p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader">
+            <div class="hexagon"></div>
+            <span>ARMFFSOFT</span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">🛡️ ARMFFSOFT</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Главная</a>
+                <a href="#products" class="nav-link">Продукты</a>
+                <a href="#features" class="nav-link">Возможности</a>
+                <a href="#contact" class="nav-link">Контакты</a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn-login">Войти</button>
+                <button class="btn-register">Регистрация</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-gradient">ПРЕМИУМ ЧИТЫ</span>
+                <span class="title-sub">ДЛЯ НАСТОЯЩИХ ГЕЙМЕРОВ</span>
+            </h1>
+            <p class="hero-description">Самые продвинутые и безопасные решения для мобильного гейминга</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="scrollToSection('products')">
+                    <span>КУПИТЬ СЕЙЧАС</span>
+                    <div class="btn-shine"></div>
+                </button>
+                <button class="btn-secondary" onclick="scrollToSection('features')">
+                    УЗНАТЬ БОЛЬШЕ
+                </button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number" data-count="10000">10000</div>
+                    <div class="stat-label">Довольных клиентов</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" data-count="99">99</div>
+                    <div class="stat-label">% Безопасность</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" data-count="24">24</div>
+                    <div class="stat-label">/7 Поддержка</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">НАШИ ПРОДУКТЫ</h2>
+            <div class="products-grid">
+                <!-- Free Fire Cheat -->
+                <div class="product-card">
+                    <div class="product-badge">ХИТ</div>
+                    <div class="product-icon">🔥</div>
+                    <h3 class="product-title">FREE FIRE MAX</h3>
+                    <div class="product-features">
+                        <div class="feature">✅ Aimbot с Auto Kill</div>
+                        <div class="feature">✅ ESP Wallhack</div>
+                        <div class="feature">✅ No Recoil</div>
+                        <div class="feature">✅ Magic Bullet</div>
+                        <div class="feature">✅ Anti-Ban System</div>
+                    </div>
+                    <div class="product-price">
+                        <span class="price-old">$49.99</span>
+                        <span class="price-new">$29.99</span>
+                    </div>
+                    <button class="btn-buy" onclick="openModal('Free Fire Max')">
+                        КУПИТЬ СЕЙЧАС
+                    </button>
+                </div>
+
+                <!-- Mobile Legends -->
+                <div class="product-card">
+                    <div class="product-badge">НОВИНКА</div>
+                    <div class="product-icon">📱</div>
+                    <h3 class="product-title">MOBILE LEGENDS</h3>
+                    <div class="product-features">
+                        <div class="feature">✅ Map Hack</div>
+                        <div class="feature">✅ Auto Farm</div>
+                        <div class="feature">✅ Skill Assist</div>
+                        <div class="feature">✅ God Mode</div>
+                        <div class="feature">✅ No Cooldown</div>
+                    </div>
+                    <div class="product-price">
+                        <span class="price-new">$24.99</span>
+                    </div>
+                    <button class="btn-buy" onclick="openModal('Mobile Legends')">
+                        КУПИТЬ СЕЙЧАС
+                    </button>
+                </div>
+
+                <!-- COD Mobile -->
+                <div class="product-card">
+                    <div class="product-badge">ПРЕМИУМ</div>
+                    <div class="product-icon">🔫</div>
+                    <h3 class="product-title">COD MOBILE</h3>
+                    <div class="product-features">
+                        <div class="feature">✅ Advanced Aimbot</div>
+                        <div class="feature">✅ Wallhack ESP</div>
+                        <div class="feature">✅ Speed Hack</div>
+                        <div class="feature">✅ Unlock All</div>
+                        <div class="feature">✅ Radar Hack</div>
+                    </div>
+                    <div class="product-price">
+                        <span class="price-new">$34.99</span>
+                    </div>
+                    <button class="btn-buy" onclick="openModal('COD Mobile')">
+                        КУПИТЬ СЕЙЧАС
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">ПОЧЕМУ МЫ?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>100% БЕЗОПАСНОСТЬ</h3>
+                    <p>Передовые технологии анти-бана и шифрования</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3>МГНОВЕННАЯ ДОСТАВКА</h3>
+                    <p>Автоматическая отправка после оплаты</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔧</div>
+                    <h3>ПОДДЕРЖКА 24/7</h3>
+                    <p>Круглосуточная техническая поддержка</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔄</div>
+                    <h3>РЕГУЛЯРНЫЕ ОБНОВЛЕНИЯ</h3>
+                    <p>Постоянные улучшения и новые функции</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Purchase Modal -->
+    <div id="purchaseModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">ПОКУПКА ЧИТА</h2>
+            <div class="modal-body">
+                <div class="payment-methods">
+                    <div class="payment-option active" data-method="crypto">
+                        <div class="payment-icon">₿</div>
+                        <span>Криптовалюта</span>
+                    </div>
+                    <div class="payment-option" data-method="paypal">
+                        <div class="payment-icon">💰</div>
+                        <span>PayPal</span>
+                    </div>
+                </div>
+                
+                <div class="payment-details">
+                    <!-- Crypto Payment -->
+                    <div id="cryptoPayment" class="payment-form">
+                        <div class="crypto-address">
+                            <label>Bitcoin (BTC) Address:</label>
+                            <div class="address-box">
+                                <code id="btcAddress">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</code>
+                                <button onclick="copyAddress('btcAddress')">Копировать</button>
+                            </div>
+                        </div>
+                        <div class="crypto-address">
+                            <label>USDT (TRC20) Address:</label>
+                            <div class="address-box">
+                                <code id="usdtAddress">TYasBfHhnGDRn4rjjFpV7rS2KvpXmMrwUZ</code>
+                                <button onclick="copyAddress('usdtAddress')">Копировать</button>
+                            </div>
+                        </div>
+                        <div class="instructions">
+                            <p>💰 <strong>Отправьте точную сумму на указанный адрес</strong></p>
+                            <p>✅ После 3 подтверждений сетью - чит будет отправлен автоматически</p>
+                            <p>📧 Или отправьте скриншот оплаты на: <strong>edoe0739@gmail.com</strong></p>
+                        </div>
+                    </div>
+
+                    <!-- PayPal Payment -->
+                    <div id="paypalPayment" class="payment-form" style="display: none;">
+                        <div class="paypal-info">
+                            <div class="paypal-email">
+                                <label>PayPal Email:</label>
+                                <div class="email-box">
+                                    <code id="paypalEmail">edoe0739@gmail.com</code>
+                                    <button onclick="copyAddress('paypalEmail')">Копировать</button>
+                                </div>
+                            </div>
+                            <div class="instructions">
+                                <p>💰 <strong>Отправьте платеж на указанный email</strong></p>
+                                <p>✅ Укажите в комментарии: <strong>ARMFFSOFT Cheat</strong></p>
+                                <p>📧 После оплаты отправьте скриншот на этот же email</p>
+                                <p>🚀 Чит будет отправлен в течение 1 часа</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('preloader').style.display = 'none';
+            }, 2000);
+        });
+
+        // Smooth scroll
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Modal functions
+        function openModal(product) {
+            document.getElementById('modalTitle').textContent = `ПОКУПКА: ${product}`;
+            document.getElementById('purchaseModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('purchaseModal').style.display = 'none';
+        }
+
+        // Payment method switching
+        document.querySelectorAll('.payment-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.payment-option').forEach(opt => {
+                    opt.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                const method = this.getAttribute('data-method');
+                document.querySelectorAll('.payment-form').forEach(form => {
+                    form.style.display = 'none';
+                });
+                
+                if (method === 'crypto') {
+                    document.getElementById('cryptoPayment').style.display = 'block';
+                } else if (method === 'paypal') {
+                    document.getElementById('paypalPayment').style.display = 'block';
+                }
+            });
+        });
+
+        // Copy address function
+        function copyAddress(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent;
+            
+            navigator.clipboard.writeText(text).then(function() {
+                const originalText = element.textContent;
+                element.textContent = 'СКОПИРОВАНО!';
+                element.style.color = '#00ff00';
+                
+                setTimeout(() => {
+                    element.textContent = originalText;
+                    element.style.color = '#00ff88';
+                }, 2000);
+            });
+        }
+
+        // Close modal on outside click
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('purchaseModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Animate numbers
+        function animateNumbers() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                const increment = target / 100;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(animateNumbers, 20);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        }
+
+        // Start animation when in view
+        window.addEventListener('scroll', function() {
+            const stats = document.querySelector('.hero-stats');
+            const position = stats.getBoundingClientRect();
+            
+            if (position.top < window.innerHeight && position.bottom >= 0) {
+                animateNumbers();
+            }
+        });
+    </script>
+</body>
+</html>
