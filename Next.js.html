@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARMFFSOFT | Elite Gaming Solutions</title>
+    
+    <!-- PWA Meta -->
+    <meta name="theme-color" content="#000000">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/icon-192.png">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="/fonts/Geist-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/css/critical.css" as="style">
+    <link rel="preload" href="/js/runtime.js" as="script">
+    
+    <!-- SEO Optimization -->
+    <meta name="description" content="Элитные игровые решения с искусственным интеллектом. 99.9% аптайм, автоматические обновления, премиум поддержка">
+    <meta name="keywords" content="читы, гейминг, Free Fire, моды, премиум">
+    <meta property="og:title" content="ARMFFSOFT - Elite Gaming">
+    <meta property="og:description" content="Профессиональные решения для киберспортсменов">
+    <meta property="og:image" content="/social/og-image.jpg">
+    <meta property="og:url" content="https://armffsoft.com">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "ARMFFSOFT Elite Suite",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Android",
+        "author": {
+            "@type": "Organization",
+            "name": "ARMFFSOFT Technologies"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "29.99",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    
+    <!-- Performance Monitoring -->
+    <script>
+    window.performanceMark = function(name) {
+        'use strict';
+        performance.mark(name);
+    };
+    performanceMark('page-start');
+    </script>
+    
+    <style>
+    /* Critical CSS - Inlined for FCP optimization */
+    :root {
+        --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --neon-glow: 0 0 20px rgba(102, 126, 234, 0.5);
+        --glass-bg: rgba(255, 255, 255, 0.1);
+        --glass-border: rgba(255, 255, 255, 0.2);
+    }
+    
+    .critical-loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+    
+    .loader {
+        width: 48px;
+        height: 48px;
+        border: 3px solid #FFF;
+        border-radius: 50%;
+        border-top-color: transparent;
+        animation: spin 1s ease-in-out infinite;
+    }
+    
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading" class="critical-loading">
+        <div class="loader"></div>
+    </div>
+
+    <!-- App Container -->
+    <div id="app" style="display: none;">
+        <!-- React/Vue will mount here -->
+    </div>
+
+    <!-- Service Worker Registration -->
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/sw.js')
+                .then(function(registration) {
+                    console.log('SW registered: ', registration);
+                })
+                .catch(function(registrationError) {
+                    console.log('SW registration failed: ', registrationError);
+                });
+        });
+    }
+    </script>
+
+    <!-- Lazy Load Main Bundle -->
+    <script defer src="/js/main.bundle.js"></script>
+    
+    <!-- Performance Tracking -->
+    <script>
+    window.addEventListener('load', function() {
+        performanceMark('page-loaded');
+        const loading = document.getElementById('loading');
+        const app = document.getElementById('app');
+        
+        setTimeout(() => {
+            loading.style.display = 'none';
+            app.style.display = 'block';
+            
+            // Send performance metrics to analytics
+            const perfData = performance.getEntriesByType('navigation')[0];
+            const metrics = {
+                fcp: perfData.domContentLoadedEventEnd - perfData.fetchStart,
+                lcp: perfData.loadEventEnd - perfData.fetchStart,
+                fid: 0 // Will be captured by analytics
+            };
+            
+            if (window.ga) {
+                ga('send', 'event', 'Performance', 'PageLoad', JSON.stringify(metrics));
+            }
+        }, 1000);
+    });
+    </script>
+</body>
+</html>
